@@ -1,0 +1,6 @@
+﻿ namespace SmartSupportDesk.API.Uploads
+{
+    public class screenshot
+    {
+    }
+}

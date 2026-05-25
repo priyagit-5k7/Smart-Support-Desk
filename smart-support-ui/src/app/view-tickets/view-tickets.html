@@ -1,0 +1,90 @@
+<div class="page">
+
+  <div class="header">
+    <h2>Ticket Management</h2>
+    <a routerLink="/create-ticket" class="btn">+ Create Ticket</a>
+  </div>
+
+  <div class="filters">
+    <input type="text" placeholder="Search..." [(ngModel)]="searchText">
+
+    <select [(ngModel)]="statusFilter">
+      <option value="">All Status</option>
+      <option>New</option>
+      <option>Pending</option>
+      <option>In Progress</option>
+      <option>Resolved</option>
+    </select>
+
+    <select [(ngModel)]="priorityFilter">
+      <option value="">All Priority</option>
+      <option>Critical</option>
+      <option>High</option>
+      <option>Medium</option>
+      <option>Low</option>
+    </select>
+  </div>
+
+  <div class="table-container">
+    <table>
+
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Status</th>
+          <th>Priority</th>
+          <th>Type</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let ticket of filteredTickets">
+
+          <td class="ticket-id">
+            <a [routerLink]="['/ticket', ticket.id]">#{{ticket.id}}</a>
+          </td>
+
+          <td>{{ticket.title}}</td>
+
+          <td>
+            <span class="badge" [ngClass]="getStatusClass(ticket.status)">
+              {{ticket.status}}
+            </span>
+          </td>
+
+          <td>
+            <span class="priority" [ngClass]="getPriorityClass(ticket.priority)">
+              {{ticket.priority}}
+            </span>
+          </td>
+
+          <!-- ✅ TYPE FIX -->
+          <td>
+            <span class="type" [ngClass]="getTypeClass(ticket.category)">
+              {{ getTypeLabel(ticket.category) }}
+            </span>
+          </td>
+
+          <td class="actions">
+            <select #statusSelect (change)="updateStatus(ticket.id, statusSelect.value)">
+              <option disabled selected>Change</option>
+              <option>New</option>
+              <option>Pending</option>
+              <option>In Progress</option>
+              <option>Resolved</option>
+            </select>
+
+            <button class="delete-btn" (click)="deleteTicket(ticket.id)">
+              Delete
+            </button>
+          </td>
+
+        </tr>
+      </tbody>
+
+    </table>
+  </div>
+
+</div>

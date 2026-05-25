@@ -1,0 +1,132 @@
+.container {
+  max-width: 850px;
+  margin: auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+  color: #ff6600;
+}
+
+textarea {
+  width: 100%;
+  height: 120px;
+  padding: 12px;
+  margin-top: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  resize: none;
+}
+
+button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #ff6600;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+  button:hover {
+    background-color: #e65c00;
+  }
+
+  button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+
+.loading {
+  margin-top: 10px;
+  color: #555;
+}
+
+.hint {
+  margin-top: 10px;
+  color: #888;
+  font-style: italic;
+}
+
+.result-box {
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 12px;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+}
+
+.section {
+  margin-top: 15px;
+}
+
+  .section h3 {
+    color: #333;
+  }
+
+ul {
+  padding-left: 20px;
+}
+
+.summary {
+  margin-top: 15px;
+  background: #fff3e0;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.recommend {
+  margin-top: 15px;
+  background: #e8f5e9;
+  padding: 10px;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+
+/* 🔥 EXAMPLES MOVING BAR */
+.examples-wrapper {
+  overflow: hidden;
+  background: #fff;
+  padding: 10px 0;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  border: 1px solid #eee;
+}
+
+.examples-track {
+  display: flex;
+  gap: 20px;
+  animation: scrollExamples 22s linear infinite;
+}
+
+.example-item {
+  white-space: nowrap;
+  padding: 8px 16px;
+  background: #e6f7ff;
+  color: #007acc;
+  border-radius: 20px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+  .example-item:hover {
+    background: #007acc;
+    color: white;
+    transform: scale(1.05);
+  }
+
+/* 🔁 SMOOTH SCROLL */
+@keyframes scrollExamples {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}

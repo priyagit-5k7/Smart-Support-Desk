@@ -1,0 +1,184 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.card {
+  background: #1e1e2f;
+  color: white;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.card {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+  .card:hover {
+    background: #ff6600;
+  }
+
+.container {
+  padding: 20px;
+  font-family: Arial;
+}
+
+h2 {
+  text-align: center;
+  color: #ff6600;
+}
+
+/* ALERT */
+.alert-box {
+  background: #ff4d4d;
+  color: white;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.card {
+  background: #1e1e2f;
+  color: white;
+  padding: 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+  .card:hover {
+    background: #ff6600;
+  }
+
+/* BUTTON */
+.actions {
+  margin-top: 10px;
+}
+
+button {
+  padding: 8px 15px;
+  background: #ff6600;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+/* CHARTS */
+.charts {
+  display: flex;
+  gap: 20px;
+}
+
+.chart-box {
+  width: 50%;
+}
+
+/* HEATMAP */
+.heatmap {
+  display: flex;
+  gap: 10px;
+}
+
+.heat-card {
+  background: #ffe0b2;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+/* TABLE */
+.table-container {
+  margin-top: 15px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  background: #333;
+  color: white;
+}
+
+th, td {
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+/* PRIORITY COLORS */
+.priority.high {
+  color: red;
+  font-weight: bold;
+}
+
+.priority.medium {
+  color: orange;
+}
+
+.priority.low {
+  color: green;
+}
+
+
+.heatmap {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.heat-card {
+  padding: 12px;
+  border-radius: 8px;
+  background: #ffe0b2;
+  min-width: 80px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Time */
+.time {
+  font-size: 14px;
+  color: #333;
+}
+
+/* Count */
+.count {
+  font-size: 16px;
+  margin-top: 5px;
+  color: #000;
+}
+
+
+/* SMALL PIE CHART (≈ 8cm) */
+.small-chart {
+  width: 300px;
+  height: 300px;
+  margin: auto;
+}
+
+  /* FORCE CANVAS SIZE */
+  .small-chart canvas {
+    width: 100% !important;
+    height: 100% !important;
+  }
