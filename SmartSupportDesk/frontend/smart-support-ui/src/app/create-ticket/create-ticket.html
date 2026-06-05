@@ -1,0 +1,91 @@
+<div class="page">
+
+  <!-- Animated Background Shapes -->
+  <div class="background-shapes">
+    <div class="shape shape1"></div>
+    <div class="shape shape2"></div>
+    <div class="shape shape3"></div>
+    <div class="shape shape4"></div>
+  </div>
+
+  <!-- Header -->
+  <div class="header">
+    <h2>Create Ticket</h2>
+    <p class="subtitle">Submit your issue efficiently 🚀</p>
+  </div>
+
+  <div class="form-container">
+
+    <!-- Ticket Number -->
+    <div class="ticket-number">
+      Ticket No: <strong>{{ticketNumber}}</strong>
+    </div>
+
+    <!-- Description Card -->
+    <div class="card">
+      <h3>Description</h3>
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input id="title" type="text" [(ngModel)]="title" placeholder="Enter issue title">
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" [(ngModel)]="description" rows="4" placeholder="Describe the issue"></textarea>
+      </div>
+    </div>
+
+    <!-- Details Card -->
+    <div class="card">
+      <h3>Details</h3>
+      <div class="form-row scroll-x">
+        <div class="form-group">
+          <label for="status">Status</label>
+          <select id="status" [(ngModel)]="status">
+            <option>New</option>
+            <option>Pending</option>
+            <option>In Progress</option>
+            <option>Resolved</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="priority">Priority</label>
+          <select id="priority" [(ngModel)]="priority">
+            <option value="">Select</option>
+            <option>Critical</option>
+            <option>High</option>
+            <option>Medium</option>
+            <option>Low</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="category">Category</label>
+          <select id="category" [(ngModel)]="category">
+            <option value="">Select</option>
+            <option>Login Issue</option>
+            <option>Network Issue</option>
+            <option>Software Issue</option>
+            <option>Change Request</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Attachment Card -->
+    <div class="card">
+      <h3>Attachments</h3>
+      <div class="form-group">
+        <input type="file" (change)="onFileChange($event)">
+      </div>
+      <div *ngIf="file" class="file-preview">
+        <span>{{file.name}}</span>
+        <button type="button" (click)="file=null">Remove</button>
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <div class="actions sticky">
+      <button class="submit-btn" (click)="createTicket()">Create Ticket</button>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,27 @@
+services:
+
+  postgres:
+    image: postgres:16
+    container_name: smartsupportdesk-postgres
+    environment:
+      POSTGRES_DB: SmartSupportDeskDB
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Priya5._
+    ports:
+      - "5432:5432"
+
+  backend:
+    image: smartsupportdesk-api
+    container_name: smartsupportdesk-api
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+
+  frontend:
+    image: smartsupportdesk-ui
+    container_name: smartsupportdesk-ui
+    ports:
+      - "4200:4200"
+    depends_on:
+      - backend

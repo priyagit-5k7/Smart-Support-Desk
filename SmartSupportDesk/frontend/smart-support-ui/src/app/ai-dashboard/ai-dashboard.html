@@ -1,0 +1,117 @@
+<div class="container">
+
+  <!-- 🔷 HEADER -->
+  <h2>📊 AI INTERACTIVE DASHBOARD</h2>
+
+  <!-- 🚨 ALERT -->
+  <div class="alert-box"
+       *ngIf="issues.length > 0 && summary['LOGIN']?.High >= 2">
+    🚨 <b>CRITICAL ALERT:</b> Multiple high-priority LOGIN issues detected!
+  </div>
+
+  <!-- 🔥 CARDS -->
+  <div class="grid">
+
+    <div class="card"
+         *ngFor="let key of objectKeys(summary)"
+         (click)="filterByCategory(key)"
+         [ngClass]="{'active-card': selectedCategory === key}">
+
+      <h3>{{ key }}</h3>
+      <p>Total: {{ summary[key].total }}</p>
+      <p>
+        High: {{ summary[key].High }} |
+        Medium: {{ summary[key].Medium }} |
+        Low: {{ summary[key].Low }}
+      </p>
+
+    </div>
+
+  </div>
+
+  <!-- 🔄 RESET -->
+  <div class="actions">
+    <button (click)="showAll()">🔄 Show All Issues</button>
+  </div>
+
+  <hr>
+
+  <!-- 📊 CHARTS -->
+  <h3>📊 Analytics Overview</h3>
+
+  <div class="charts">
+
+    <!-- BAR -->
+    <div class="chart-box">
+      <h4>📊 Category vs Issues</h4>
+      <canvas id="barChart"></canvas>
+    </div>
+
+    <!-- PIE (FIXED SIZE) -->
+    <div class="chart-box small-chart">
+      <h4>🥧 Priority Distribution</h4>
+      <canvas id="pieChart"></canvas>
+    </div>
+
+  </div>
+
+  <hr>
+
+  <!-- 🔥 HEATMAP (VISUAL) -->
+  <h3>🔥 Issue Activity Heatmap</h3>
+
+  <div class="heatmap">
+
+    <div class="heat-card"
+         *ngFor="let time of timeSlots"
+         [style.background]="getHeatColor(heatmap[time] || 0)">
+
+      <div class="time">{{ time }}</div>
+      <div class="count">{{ heatmap[time] || 0 }}</div>
+
+    </div>
+
+  </div>
+
+  <hr>
+
+  <!-- 🎯 FILTER TITLE -->
+  <h3 *ngIf="selectedCategory">
+    🎯 Showing: {{ selectedCategory }} Issues
+  </h3>
+
+  <!-- 📋 TABLE -->
+  <div class="table-container">
+
+    <table>
+
+      <thead>
+        <tr>
+          <th>Issue</th>
+          <th>Category</th>
+          <th>Priority</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let issue of filteredIssues">
+          <td>{{ issue.text }}</td>
+          <td>{{ issue.category }}</td>
+          <td>
+            <span class="priority"
+                  [ngClass]="{
+                    'high': issue.priority === 'High',
+                    'medium': issue.priority === 'Medium',
+                    'low': issue.priority === 'Low'
+                  }">
+              {{ issue.priority }}
+            </span>
+          </td>
+        </tr>
+      </tbody>
+
+    </table>
+
+  </div>
+
+</div>

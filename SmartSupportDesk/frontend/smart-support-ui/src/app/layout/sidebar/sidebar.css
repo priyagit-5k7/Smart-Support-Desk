@@ -1,0 +1,19 @@
+.container {
+  height: 100vh;
+}
+
+.logo {
+  padding: 20px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+mat-sidenav {
+  width: 230px;
+  background: #0d47a1;
+  color: white;
+}
+
+a {
+  color: white;
+}

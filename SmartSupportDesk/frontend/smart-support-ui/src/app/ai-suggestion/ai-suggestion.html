@@ -1,0 +1,147 @@
+<div class="container">
+
+  <h1>🤖 AI Suggestion Engine</h1>
+
+  <!-- 🔥 MOVING ISSUE EXAMPLES -->
+  <div class="examples-wrapper">
+
+    <div class="examples-track">
+
+      <!-- 🔐 LOGIN -->
+      <div class="example-item"
+           (click)="setExample('User unable to login due to expired token')">
+        🔐 Login: expired token
+      </div>
+
+      <div class="example-item"
+           (click)="setExample('Login failed invalid username or password')">
+        🔐 Invalid credentials
+      </div>
+
+      <div class="example-item"
+           (click)="setExample('Authentication error session timeout')">
+        🔐 Session timeout
+      </div>
+
+      <!-- 🌐 NETWORK -->
+      <div class="example-item"
+           (click)="setExample('Application is slow and API timeout issue')">
+        🌐 API timeout
+      </div>
+
+      <div class="example-item"
+           (click)="setExample('Network issue server not responding')">
+        🌐 Server not responding
+      </div>
+
+      <!-- 🗄 DATABASE -->
+      <div class="example-item"
+           (click)="setExample('Database connection failed query not working')">
+        🗄 DB connection failed
+      </div>
+
+      <div class="example-item"
+           (click)="setExample('DB error connection timeout issue')">
+        🗄 DB timeout
+      </div>
+
+      <!-- 🖥 UI -->
+      <div class="example-item"
+           (click)="setExample('Dashboard button not working properly')">
+        🖥 UI button issue
+      </div>
+
+      <!-- 🧪 TEST -->
+      <div class="example-item"
+           (click)="setExample('Test case failed unexpected output in application')">
+        🧪 Test failure
+      </div>
+
+      <!-- 🔁 DUPLICATE FOR LOOP -->
+      <div class="example-item">🔐 Login error</div>
+      <div class="example-item">🌐 Network issue</div>
+      <div class="example-item">🗄 Database error</div>
+
+    </div>
+
+  </div>
+
+  <!-- ✅ TEXT INPUT -->
+  <textarea [(ngModel)]="issueText"
+            placeholder="Enter issue (login, network, database...)">
+  </textarea>
+
+  <!-- ✅ BUTTON (DISABLED IF EMPTY OR LOADING) -->
+  <button (click)="analyzeIssue()"
+          [disabled]="loading || !issueText.trim()">
+
+    {{ loading ? 'Analyzing...' : 'Analyze Issue' }}
+  </button>
+
+  <!-- 💡 HINT MESSAGE -->
+  <p class="hint" *ngIf="!issueText.trim()">
+    💡 Enter issue details to get AI suggestions
+  </p>
+
+  <!-- 🔥 INFO MESSAGE -->
+  <p class="hint" *ngIf="issueText.trim()">
+    ✏️ Modify issue and click Analyze again to update result
+  </p>
+
+  <!-- 🔄 LOADING -->
+  <p class="loading" *ngIf="loading">
+    ⏳ Analyzing issue...
+  </p>
+
+  <!-- ✅ RESULT -->
+  <div *ngIf="response && !loading" class="result-box">
+
+    <h2>🔍 AI Analysis Result</h2>
+
+    <p><b>Cause:</b> {{response.cause}}</p>
+    <p><b>Module:</b> {{response.module}}</p>
+    <p><b>Sub Module:</b> {{response.subModule}}</p>
+    <p><b>Logic Issue:</b> {{response.logicIssue}}</p>
+
+    <div class="section">
+      <h3>⚠️ Possible Errors</h3>
+      <ul>
+        <li *ngFor="let e of response.possibleErrors">{{e}}</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h3>🧩 Affected Components</h3>
+      <ul>
+        <li *ngFor="let c of response.affectedComponents">{{c}}</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h3>🛠️ Solution Steps</h3>
+      <ul>
+        <li *ngFor="let s of response.solution">{{s}}</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h3>🐞 Debug Steps</h3>
+      <ul>
+        <li *ngFor="let d of response.debugSteps">{{d}}</li>
+      </ul>
+    </div>
+
+    <div class="summary">
+      <p><b>Priority:</b> {{response.priority}}</p>
+      <p><b>Impact:</b> {{response.impact}}</p>
+      <p><b>Estimated Time:</b> {{response.estimatedResolutionTime}}</p>
+      <p><b>Escalation Level:</b> {{response.escalationLevel}}</p>
+    </div>
+
+    <div class="recommend">
+      <p><b>Recommendation:</b> {{response.recommendation}}</p>
+    </div>
+
+  </div>
+
+</div>

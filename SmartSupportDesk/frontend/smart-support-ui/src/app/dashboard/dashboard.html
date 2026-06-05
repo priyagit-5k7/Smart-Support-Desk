@@ -1,0 +1,112 @@
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <h3 class="logo">SSD</h3>
+
+    <a>🏠 Home</a>
+    <a class="active">📊 Dashboard</a>
+    <a>🎫 Tickets</a>
+  </div>
+
+  <!-- MAIN -->
+  <div class="main">
+
+    <!-- TOPBAR -->
+    <div class="topbar">
+      <h2>📊 Dashboard Overview</h2>
+
+      <div class="user">
+        👤 Priya
+      </div>
+    </div>
+
+    <!-- 🔥 KPI CARDS -->
+    <div class="cards">
+
+      <div class="card blue" (click)="filter('all')">
+        <h4>Total Tickets</h4>
+        <p>{{ data.totalTickets || 0 }}</p>
+        <span class="trend up">↑ 12%</span>
+      </div>
+
+      <div class="card orange" (click)="filter('pending')">
+        <h4>Pending</h4>
+        <p>{{ data.pendingTickets || 0 }}</p>
+        <span class="trend down">↓ 5%</span>
+      </div>
+
+      <div class="card green" (click)="filter('resolved')">
+        <h4>Resolved</h4>
+        <p>{{ data.resolvedTickets || 0 }}</p>
+        <span class="trend up">↑ 18%</span>
+      </div>
+
+      <div class="card red" (click)="filter('high')">
+        <h4>High Priority</h4>
+        <p>{{ data.highPriorityTickets || 0 }}</p>
+        <span class="trend down">↓ 3%</span>
+      </div>
+
+    </div>
+
+    <!-- 🔥 GRID -->
+    <div class="dashboard-grid">
+
+      <!-- LEFT SIDE (CHARTS) -->
+      <div class="left">
+
+        <div class="chart-card">
+          <h3>📈 Tickets Over Time</h3>
+          <canvas #lineChart></canvas>
+        </div>
+
+        <div class="chart-card">
+          <h3>📊 Tickets by Status</h3>
+          <canvas #barChart></canvas>
+        </div>
+
+      </div>
+
+      <!-- RIGHT SIDE -->
+      <div class="right">
+
+        <!-- 🔥 RECENT TICKETS -->
+        <div class="panel">
+
+          <h3>🆕 Recent Tickets</h3>
+
+          <div *ngFor="let t of data.recentTickets" class="ticket">
+
+            <div class="ticket-info">
+              <strong>#{{t.id}}</strong>
+              <span class="title">{{t.title}}</span>
+            </div>
+
+            <span class="status" [ngClass]="t.status">
+              {{t.status}}
+            </span>
+
+          </div>
+
+        </div>
+
+        <!-- 🔥 ACTIVITY FEED -->
+        <div class="panel">
+
+          <h3>⚡ Activity Feed</h3>
+
+          <div class="activity">
+            <p>🟢 Ticket #12 resolved successfully</p>
+            <p>🟡 Ticket #15 is still pending</p>
+            <p>🔴 High priority ticket created</p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>

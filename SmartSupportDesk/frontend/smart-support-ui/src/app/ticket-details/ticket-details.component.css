@@ -1,0 +1,51 @@
+.title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Card */
+.ticket-card {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+  .ticket-card p {
+    font-size: 16px;
+    margin: 10px 0;
+  }
+
+/* Dropdown */
+.dropdown {
+  padding: 8px;
+  border-radius: 6px;
+}
+
+/* Button */
+.update-btn {
+  background: #1890ff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+  .update-btn:hover {
+    background: #40a9ff;
+  }
+
+/* Loading */
+.loading {
+  text-align: center;
+  font-size: 18px;
+}
+
+/* Error */
+.error {
+  text-align: center;
+  color: red;
+}

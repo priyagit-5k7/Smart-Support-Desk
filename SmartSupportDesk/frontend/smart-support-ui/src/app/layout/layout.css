@@ -1,0 +1,66 @@
+/* 🌍 GLOBAL */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f8fafc;
+}
+
+/* 🔲 LAYOUT */
+.layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* 🔥 TOP NAVBAR */
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1e293b;
+  color: white;
+  padding: 12px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* LOGO */
+.logo {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* NAV LINKS */
+.nav-links {
+  display: flex;
+  gap: 25px;
+}
+
+  .nav-links a {
+    color: #e2e8f0;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+    padding: 6px 10px;
+    border-radius: 6px;
+  }
+
+    /* HOVER + ACTIVE */
+    .nav-links a:hover {
+      background: #2563eb;
+      color: white;
+    }
+
+/* USER */
+.user {
+  font-size: 14px;
+}
+
+/* 📄 MAIN CONTENT */
+.main {
+  flex: 1;
+  padding: 20px;
+  background: #f4f6f9;
+  overflow-y: auto;
+}

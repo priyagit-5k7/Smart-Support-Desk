@@ -1,0 +1,219 @@
+<div class="home">
+
+  <!-- 🔥 TOP NAVBAR -->
+  <div class="top-nav">
+
+    <div class="logo">SSD</div>
+
+    <div class="nav-links">
+      <a (click)="goToDashboard()">📊 Dashboard</a>
+      <a (click)="goToCreate()">🎫 Create Ticket</a>
+      <a (click)="goToView()">📋 View Tickets</a>
+      <a (click)="goToAiSuggestion()">🤖 AI Suggestion</a>
+      <a (click)="goToAiDashboard()">🚀 AI Dashboard</a>
+    </div>
+
+    <div class="user-section">
+      👤 Priya
+    </div>
+
+  </div>
+
+  <!-- 🔷 HERO -->
+  <div class="hero">
+    <div class="overlay">
+      <h1>Smart Support Desk</h1>
+      <p>AI-powered help center for faster resolution</p>
+
+
+      <!-- 🔥 MOVING NAV (QUICK ACTIONS) -->
+      <div class="nav-wrapper">
+        <div class="nav-track">
+
+          <div class="nav-item" (click)="showHelp('login')">🔐 Login</div>
+          <div class="nav-item" (click)="showHelp('network')">🌐 Network</div>
+          <div class="nav-item" (click)="showHelp('software')">💻 Software</div>
+          <div class="nav-item" (click)="goToCreate()">🎫 Create Ticket</div>
+          <div class="nav-item" (click)="goToView()">📋 My Tickets</div>
+          <div class="nav-item" (click)="goToDashboard()">📊 Dashboard</div>
+          <div class="nav-item" (click)="showHelp('feedback')">⭐ Feedback</div>
+
+          <!-- 🔁 LOOP -->
+          <div class="nav-item">🔐 Login</div>
+          <div class="nav-item">🌐 Network</div>
+          <div class="nav-item">💻 Software</div>
+
+        </div>
+      </div>
+
+      <!-- 🔍 SEARCH -->
+      <input type="text"
+             placeholder="🔍 Search issues..."
+             class="search-box"
+             (focus)="showHelp('search')">
+
+      <!-- 🔘 CTA -->
+      <div class="hero-actions">
+        <button class="primary-btn" (click)="goToCreate()">➕ Create Ticket</button>
+        <button class="secondary-btn" (click)="goToView()">📋 My Tickets</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 🔥 MOVING KNOWLEDGE BASE -->
+  <div class="kb-wrapper">
+
+    <h2>⚡ Quick Solutions</h2>
+
+    <div class="kb-track">
+
+      <div class="kb-item" (click)="showHelp('login')">
+        🔐 Login failed / session timeout
+      </div>
+
+      <div class="kb-item" (click)="showHelp('network')">
+        🌐 API timeout / server not responding
+      </div>
+
+      <div class="kb-item" (click)="showHelp('software')">
+        🗄 DB connection failed
+      </div>
+
+      <div class="kb-item" (click)="showHelp('software')">
+        🖥 Button not working
+      </div>
+
+      <div class="kb-item" (click)="showHelp('software')">
+        🧪 Test case failed
+      </div>
+
+      <!-- 🔁 LOOP -->
+      <div class="kb-item">🔐 Login failed</div>
+      <div class="kb-item">🌐 Network issue</div>
+      <div class="kb-item">💻 Software error</div>
+
+    </div>
+
+  </div>
+
+  <!-- ⚡ ACTIONS -->
+  <div class="actions">
+
+    <div class="action-card" (click)="goToCreate()">
+      <h3>🎫 Create Ticket</h3>
+      <p>Raise a new issue</p>
+    </div>
+
+    <div class="action-card" (click)="goToView()">
+      <h3>📋 View Tickets</h3>
+      <p>Track your requests</p>
+    </div>
+
+    <div class="action-card" (click)="goToDashboard()">
+      <h3>📊 Dashboard</h3>
+      <p>View analytics</p>
+    </div>
+
+    <div class="action-card ai-card" (click)="goToAiSuggestion()">
+      <h3>🤖 AI Suggestions</h3>
+      <p>Smart issue solutions</p>
+    </div>
+
+    <div class="action-card ai-card2" (click)="goToAiDashboard()">
+      <h3>🚀 AI Dashboard</h3>
+      <p>AI insights & alerts</p>
+    </div>
+
+  </div>
+
+  <!-- 🔥 HELP OUTPUT -->
+  <div *ngIf="selectedHelp" class="help-box">
+    <h2>{{ selectedHelp.title }}</h2>
+
+    <ul>
+      <li *ngFor="let item of selectedHelp.content">
+        ✔ {{ item }}
+      </li>
+    </ul>
+  </div>
+
+  <!-- ⭐ FEEDBACK -->
+  <div class="feedback">
+    <h2>⭐ Feedback</h2>
+    <button class="primary-btn" (click)="showHelp('feedback')">
+      Give Feedback
+    </button>
+  </div>
+
+  <!-- 🔥 SUPPORT DESK INFO SECTION -->
+
+  <div class="info-section">
+
+    <h2>📌 What is a Support Desk?</h2>
+
+    <p>
+      A Support Desk is a centralized system that helps organizations manage,
+      track, and resolve user issues efficiently. It acts as a bridge between
+      users and support teams, ensuring smooth communication and faster resolution.
+    </p>
+
+  </div>
+
+  <div class="info-section">
+
+    <h2>🚀 Why is it Important?</h2>
+
+    <ul>
+      <li>✔ Faster issue resolution</li>
+      <li>✔ Centralized ticket management</li>
+      <li>✔ Improves customer satisfaction</li>
+      <li>✔ Reduces manual workload</li>
+      <li>✔ Real-time tracking and updates</li>
+    </ul>
+
+  </div>
+
+  <div class="info-section">
+
+    <h2>🏢 Where is it Used?</h2>
+
+    <ul>
+      <li>💻 IT Companies (Tech Support)</li>
+      <li>🏦 Banking Systems</li>
+      <li>🏥 Healthcare Services</li>
+      <li>📦 Logistics & Delivery Platforms</li>
+      <li>🎓 Educational Institutions</li>
+    </ul>
+
+  </div>
+
+  <div class="info-section">
+
+    <h2>🤖 What Makes Our System Smart?</h2>
+
+    <ul>
+      <li>✔ AI-based ticket classification</li>
+      <li>✔ Smart suggestions for issues</li>
+      <li>✔ Real-time dashboard analytics</li>
+      <li>✔ Email notification system</li>
+      <li>✔ Interactive and user-friendly UI</li>
+    </ul>
+
+  </div>
+
+  <div class="info-section">
+
+    <h2>⚙️ How It Works</h2>
+
+    <ol>
+      <li>User creates a ticket</li>
+      <li>AI analyzes the issue</li>
+      <li>Priority is assigned automatically</li>
+      <li>Support team resolves the issue</li>
+      <li>User gets notified via email</li>
+    </ol>
+
+  </div>
+
+</div>
